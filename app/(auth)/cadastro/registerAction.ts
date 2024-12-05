@@ -2,6 +2,7 @@
 
 import db from "@/lib/db";
 import { hashSync } from "bcrypt-ts";
+import { redirect } from "next/navigation";
 
 export default async function registerAction(_prevState: any, formData: FormData) {
   try {
@@ -48,11 +49,8 @@ export default async function registerAction(_prevState: any, formData: FormData
         senha: hashSync(data.password),
       },
     });
-    console.log('usuário cadastrado com sucesso!')
-    return {
-      message: "Usuário cadastrado com sucesso!",
-      success: true,
-    };
+
+
   } catch (error: any) {
     console.error("Erro ao inserir registro:", error.message || error);
     return {
@@ -60,4 +58,5 @@ export default async function registerAction(_prevState: any, formData: FormData
       success: false,
     };
   }
+  return redirect('/');
 }

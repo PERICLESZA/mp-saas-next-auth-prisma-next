@@ -7,7 +7,8 @@ export default async function loginAction(_prevState: any, formData: FormData) {
     await signIn("credentials", {
       email: formData.get("email") as string,
       password: formData.get("password") as string,
-      redirect: false,
+      redirect: true,
+      redirectTo: '/dashboard',
     });
     return { success: true };
   } catch (e: any) {

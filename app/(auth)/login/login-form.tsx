@@ -41,8 +41,8 @@ export default function LoginForm() {
           className="text-xs mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
           role="alert"
         >
-          {/* <strong className="font-bold">Sucesso!</strong>
-          <span className="block mt-1">{state?.message}</span> */}
+          <strong className="font-bold">Sucesso!</strong>
+          <span className="block mt-1">{state?.message}</span>
         </div>
       )}
       <Form action={formAction}>
