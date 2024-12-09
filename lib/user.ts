@@ -4,11 +4,12 @@ import { compareSync } from 'bcrypt-ts';
 
 export async function findUserByCredentials(
     email:string, 
-    password:string): Promise<login | null> {
+    password:string
+    ): Promise<login | null> {
         const user = await db.login.findFirst({
             where: {
                 email: email,
-            }
+            },
         });
 
         if (!user) {
@@ -16,7 +17,7 @@ export async function findUserByCredentials(
         }
 
         const passwordMatch = compareSync(password, user.senha ?? '')
-
+        
         if(passwordMatch){
             return user;
         }
